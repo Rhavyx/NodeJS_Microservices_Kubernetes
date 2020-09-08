@@ -1,6 +1,7 @@
 const express = require('express');
 const {randomBytes} = require('crypto');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 app.use(express.json());
@@ -13,7 +14,8 @@ app.get('/posts', (req, res) => {
   res.send(posts);
 });
 
-app.post('/posts', (req, res) => {
+app.post('/posts', async (req, res) => {
+  ///ADD ASYNC PORCAUSA DO AXIOS.POST
   const id = randomBytes(4).toString('hex');
   const {title} = req.body;
   console.log(title);
@@ -22,6 +24,12 @@ app.post('/posts', (req, res) => {
     id,
     title,
   };
+
+  await axios.post('http://localhost:4005/events', {
+    /// ADD AWAIT PORQUE E ASYNCRONO OP
+    type: 'PostCreated',
+    data: {id, title},
+  });
 
   res.status(201).send(posts[id]);
 });
