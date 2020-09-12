@@ -15,6 +15,7 @@ docker kill <containerID> //RIGHT NOW!
 docker system prune  
 docker start <containerID> // sem -a.. usar log  
 docker logs <containerID>
+docker push havyx/posts
 
 ```
 * Abrir novo terminal, docker ps, pegar id  
@@ -128,4 +129,5 @@ kubectl get deplyments
 kubectl describe deployment [depl name]
 kubectl apply -f [config file name]
 kubectl delete deployment [depl_name]
+kubectl rollout restart deployment posts-depl
 ```
