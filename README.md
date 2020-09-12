@@ -111,5 +111,21 @@ spec:
 ```
 ```
 kubectl apply -f posts.yaml
+kubectl exec -it posts sh
+  
+Others commands:
 kubectl get pods
+kubectl exec -it [pod_name] [cmd]
+kubectl logs [pod_name]
+kubectl delete pod [pod_name]
+kubectl apply -f [config file name]
+kubectl describe pod [pod_name]
+```
+  
+# Deployment  
+```
+kubectl get deplyments
+kubectl describe deployment [depl name]
+kubectl apply -f [config file name]
+kubectl delete deployment [depl_name]
 ```
