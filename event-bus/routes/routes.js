@@ -3,8 +3,12 @@ const axios = require('axios');
 
 const route = express.Router();
 
+const events = [];
+
 route.post('/events', (req, res) => {
   const event = req.body;
+
+  events.push(event);
 
   axios.post('http://localhost:4000/events', event);
   axios.post('http://localhost:4001/events', event);
@@ -12,6 +16,10 @@ route.post('/events', (req, res) => {
   axios.post('http://localhost:4003/events', event);
 
   res.send({success: true, message: 'OK'});
+});
+
+route.get('/events', (req, res) => {
+  res.send(events);
 });
 
 module.exports = route;
