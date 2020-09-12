@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: posts
-          image: havyx/posts:0.0.1
+          image: havyx/posts:latest
