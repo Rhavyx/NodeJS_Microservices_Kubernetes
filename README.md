@@ -1,7 +1,7 @@
 # Mini-Microservices-App
 Mini-Microservices com Arquitetura Assincronia com event bus (query service, emmiting events e receiving events). Stack: React.js Node.js com Express.
   
-### Docker quick notes  
+## Docker quick notes  
    
 * alpine: small and compact as much as possible.  
 * docker run = docker create my-app-image + docker start -a <containerID>   
@@ -85,3 +85,31 @@ COPY ./ ./
 CMD ["npm", "start"]  
 ```  
   
+## Kubernetes quick notes  
+  
+* Kubernetes CLuster: A collections of nodes + a master to manage them  
+* Node: A virtual machine that will run our containers  
+* Pode : More or less a running container. A Pod can run multiple containers.
+* Deployment: Monitors a set of pods, make sure they are running and restarts them if they crash.
+* Provides an easy-to-remember URL to access a running container.  
+  
+```
+kubectl version
+docker build -t havyx/posts:0.0.1 .
+```
+  
+* Criar um pod com a .yaml file:  
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: posts
+spec:
+  containers:
+    - name: posts
+      image: havyx/posts:0.0.1
+```
+```
+kubectl apply -f posts.yaml
+kubectl get pods
+```
