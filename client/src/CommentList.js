@@ -17,7 +17,19 @@ export default ({comments}) => {
   }, []); */
 
   const renderedComments = comments.map((comment) => {
-    return <li key={comment.id}>{comment.content}</li>;
+    let content;
+
+    if (comment.status === 'approved') {
+      content = comment.content;
+    }
+    if (comment.status === 'pending') {
+      content = 'Comentario aguardando por moderacao';
+    }
+    if (comment.status === 'reject') {
+      content = 'Comentario rejeitado';
+    }
+
+    return <li key={comment.id}>{content}</li>;
   });
 
   return <ul>{renderedComments}</ul>;
