@@ -123,11 +123,26 @@ kubectl apply -f [config file name]
 kubectl describe pod [pod_name]
 ```
   
-# Deployment  
+## Deployment  
 ```
 kubectl get deplyments
 kubectl describe deployment [depl name]
 kubectl apply -f [config file name]
 kubectl delete deployment [depl_name]
 kubectl rollout restart deployment posts-depl
+```  
+  
+## Services  
+  
+* Cluster IP: Sets up an easy to remember URL to access a pod. Only exposes pods in the cluster.  
+* Node Port: Makes a pod accessible from outside the cluster. Usually only used for dev purposes.  
+* Load Balancer: Makes a pod accessible from outside the cluster. This is the right way to expose a pod to the outside world.  
+* External Name: Redirects an in-cluster request to a CNAME url.  
+### Node Port  -> For dev porpuses
+```
+kubectl apply -f posts-srv.yaml  
+kubectl get services
+kubectl describe service posts-srv
+4000:32087/TCP
+A porta 32087 que acessamos por fora localhost:32087/posts
 ```
