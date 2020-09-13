@@ -1,5 +1,7 @@
 # Mini-Microservices-App
-Mini-Microservices com Arquitetura Assincronia com event bus (query service, emmiting events e receiving events). Stack: React.js Node.js com Express.
+Mini-Microservices com Arquitetura Assincronia com event bus (query service, emmiting events e receiving events). Stack: React.js Node.js com Express.  
+  
+![](./infra/arquitetura.png)
   
 ## Docker quick notes  
    
