@@ -145,4 +145,28 @@ kubectl get services
 kubectl describe service posts-srv
 4000:32087/TCP
 A porta 32087 que acessamos por fora localhost:32087/posts
+kubectl logs [podname]
+```  
+  
+### Cluster IP  
+```
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-bus-srv
+spec:
+  selector:
+    app: event-bus
+  type: ClusterIP
+  ports:
+    - name: event-bus
+      protocol: TCP
+      port: 4005
+      targetPort: 4005
+```
+  
+* aplicar config para todos os arquivos yaml em uma pasta:
+```
+kubectl apply -f .    
 ```
